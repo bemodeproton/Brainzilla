@@ -1,0 +1,51 @@
+//Scanner allows you to take user input
+import java.util.Scanner;
+
+//public means this class can be used throughout your code
+//you have to have a main class in your java project and the class name has
+//to be used throughout the code
+public class mainClass{
+    //defining these names as strings
+    String vName;
+    String vID;
+
+    //creates an instance which can be used instead of rewriting the same
+    //variable definitions every time you need them
+    public mainClass(String vendorName, String vendorID){
+        //sets the strings we defined earlier to these to for use later
+        vName = vendorName;
+        vID = vendorID;
+    }
+    //this bit of is used in almost every java code and is best for
+    //beginner coding
+    public static void main(String[] args){
+        //takes the user input
+        Scanner userIn = new Scanner(System.in);
+        //this prints to the screen asking for user input
+        System.out.println("Scan your badge: ");
+        //creates a new line under where its asking for user input
+        String badgeID = userIn.nextLine();
+        
+        //creates instances of the class where we defined vendorName earlier
+        //also assigns values via an array
+        //if you want to add more values you must define them like we did in the
+        //first ones
+      mainClass coke = new mainClass("Coca Cola", "049000000443");
+      mainClass pepsi = new mainClass("Pepsi", "012000001291");
+      mainClass frito = new mainClass("Frito Lay", "028400084116");
+      
+      //from here down evaluates use input and adjusts code accordingly
+      if (badgeID.equals("049000000443")){
+       System.out.println("Welcome " + coke.vName);
+       
+      } else if (badgeID.equals("012000001291")){
+          System.out.println("Welcome " + pepsi.vName);
+          
+      } else if (badgeID.equals("028400084116")){
+          System.out.println("Welcome " + frito.vName);
+          
+      } else{
+          System.out.println("Vendor not on file");
+      }
+    }
+}
